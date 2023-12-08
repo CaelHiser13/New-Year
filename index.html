@@ -9,15 +9,10 @@
       text-align: center;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f0f0f0;
     }
 
     .countdown {
-      text-align: center;
+      margin-top: 100px;
     }
 
     #timer {
@@ -34,7 +29,7 @@
 
   <script>
     function getTimeRemaining(endTime) {
-      const total = Date.parse(endTime) - Date.now();
+      const total = endTime - Date.now();
       const seconds = Math.floor((total / 1000) % 60);
       const minutes = Math.floor((total / 1000 / 60) % 60);
       const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
@@ -53,7 +48,7 @@
       const clock = document.getElementById(id);
       const timeinterval = setInterval(() => {
         const t = getTimeRemaining(endTime);
-        clock.innerHTML = `${4.days} days ${t.hours} hours ${t.minutes} minutes ${t.seconds} seconds`;
+        clock.innerHTML = `${t.days} days ${t.hours} hours ${t.minutes} minutes ${t.seconds} seconds`;
 
         if (t.total <= 0) {
           clearInterval(timeinterval);
@@ -63,7 +58,7 @@
     }
 
     const deadline = new Date('2023-12-11T10:30:00').getTime(); // December 11, 2023, 10:30 AM
-    initializeClock('timer', 2023-12-11T10:30:00);
+    initializeClock('timer', deadline);
   </script>
 </body>
 </html>
