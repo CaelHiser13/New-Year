@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Countdown to December 11, 2023, 10:30 AM</title>
+  <title>New Year Countdown</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,21 +15,25 @@
       margin-top: 100px;
     }
 
+    h1 {
+      font-size: 2em;
+    }
+
     #timer {
       font-size: 3em;
-      color: black; /* Change the font color to black */
+      color: #333;
     }
   </style>
 </head>
 <body>
   <div class="countdown">
-    <h1>Countdown to December 11, 2023, 10:30 AM</h1>
+    <h1>New Year Countdown</h1>
     <p id="timer"></p>
   </div>
 
   <script>
     function getTimeRemaining(endTime) {
-      const total = endTime - Date.now();
+      const total = Date.parse(endTime) - Date.parse(new Date());
       const seconds = Math.floor((total / 1000) % 60);
       const minutes = Math.floor((total / 1000 / 60) % 60);
       const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
@@ -52,12 +56,12 @@
 
         if (t.total <= 0) {
           clearInterval(timeinterval);
-          clock.innerHTML = 'Countdown expired!';
+          clock.innerHTML = 'Happy New Year!';
         }
       }, 1000);
     }
 
-    const deadline = new Date('2023-12-11T10:30:00').getTime(); // December 11, 2023, 10:30 AM
+    const deadline = '2023-12-01T10:30:00'; // Change this to the desired New Year's date
     initializeClock('timer', deadline);
   </script>
 </body>
